@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next BART Trains</title>
+    <!-- Local Tailwind CSS -->
+    <link href="tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for better aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem; /* Add some padding for smaller screens */
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff; /* White background for the card */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            border-radius: 1.5rem; /* More rounded corners */
+            padding: 2.5rem;
+            max-width: 90%;
+            width: 600px; /* Slightly wider to accommodate more info */
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .station-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0; /* Light border to separate sections */
+        }
+        .station-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .station-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a5568; /* Darker gray for station titles */
+            margin-bottom: 1rem;
+        }
+        .train-item {
+            background-color: #e2f0ff; /* Light blue background for train items */
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #2c5282; /* Darker blue text */
+        }
+        .train-item:last-child {
+            margin-bottom: 0;
+        }
+        .destination-origin {
+            font-weight: 700;
+            color: #1a202c; /* Dark text for destination and origin */
+            flex-grow: 1; /* Allow it to take available space */
+            text-align: left;
+        }
+        .minutes {
+            font-size: 1.25rem;
+            color: #3182ce; /* Blue for minutes */
+            min-width: 80px; /* Ensure consistent width for minutes */
+            text-align: right;
+        }
+        .no-trains {
+            color: #718096; /* Gray text for no trains message */
+            font-style: italic;
+            text-align: center;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #3182ce;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-extrabold mb-6 text-gray-800">Next BART Trains</h1>
+        <p class="text-sm text-gray-500 mb-4">Real-time departures for selected routes</p>
+
+        <div id="train-info" class="flex flex-col gap-3">
+            <!-- Train information will be loaded here -->
+            <div class="loading-spinner"></div>
+            <p class="text-gray-600 mt-2">Loading train data...</p>
+        </div>
+
+        <p class="text-xs text-gray-400 mt-6">Last updated: <span id="last-updated">N/A</span></p>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
